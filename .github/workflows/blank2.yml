@@ -1,0 +1,31 @@
+name: Test-2
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  prep:
+    runs-on: ["ubuntu"]
+    steps:
+      - name: Wait test
+        run: |
+          echo "Starting..."
+          sleep 5
+          echo "Done!"
+      - name: test-2
+        run: |
+          echo "Meow"
+          sleep 15
+          echo "OK"
+  dev:
+    runs-on: ["ubuntu"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: ls
+        run: ls
+      - name: whoami
+        run: whoami
+      - name: hostname
+        run: hostname
